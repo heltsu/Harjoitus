@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Ruokakortisto {
-     String nimi;
+    String nimi;
     int vaikeusaste;
     String kategoria;
     ArrayList<String> reseptit = new ArrayList<String>();
