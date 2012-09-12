@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
  * @author hniemima
  */
 public class RuokakortistoTest {
+    Ruokakortisto ruokakortisto;
     
     public RuokakortistoTest() {
     }
@@ -29,6 +30,7 @@ public class RuokakortistoTest {
     
     @Before
     public void setUp() {
+        ruokakortisto = new Ruokakortisto ("kanavartaat", 6, "kana");
     }
     
     @After
@@ -41,7 +43,28 @@ public class RuokakortistoTest {
      public void hello() {}
     
     @Test
-     public void testRuokakortistonLuonti(){
-        Ruokakortisto ruokakortisto = new Ruokakortisto("kanavartaat", 5, "kana");
+     public void testToimiikoHaeNimi(){
+        assertEquals (ruokakortisto.haeNimi(), "kanavartaat");
+    }
+    
+    @Test
+    public void testToimiikoHaeVaikeusaste(){
+        assertEquals (ruokakortisto.haeVaikeusaste(), 5);
+    }
+    
+    @Test
+    public void testToimiikoHaeKategoria(){
+        assertEquals (ruokakortisto.haeKategoria(), "kana");
+    }
+    
+    @Test
+    public void testToimiikoLisaaResepti(){
+        ruokakortisto.lisaaResepti("kanavartaat");
+        assertEquals (ruokakortisto.haeResepti("kanavartaat"), true);
+    }
+    
+    @Test
+    public void testToimiikoHaeResepti(){
+        
     }
 }
