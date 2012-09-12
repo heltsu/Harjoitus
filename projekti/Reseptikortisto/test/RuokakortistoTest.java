@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
  */
 public class RuokakortistoTest {
     Ruokakortisto ruokakortisto;
+    Ruokakortisto ruokakortisto1;
     
     public RuokakortistoTest() {
     }
@@ -31,6 +32,7 @@ public class RuokakortistoTest {
     @Before
     public void setUp() {
         ruokakortisto = new Ruokakortisto ("kanavartaat", 6, "kana");
+        ruokakortisto1 =new Ruokakortisto ("kalapuikot");
     }
     
     @After
@@ -44,12 +46,21 @@ public class RuokakortistoTest {
     
     @Test
      public void testToimiikoHaeNimi(){
-        assertEquals (ruokakortisto.haeNimi(), "kanavartaat");
+        assertEquals (ruokakortisto.haeNimi(), "kanavartaat");     
+    }
+    @Test
+    public void testToimiikoHaeNimi1(){
+        assertEquals (ruokakortisto1.haeNimi(), "kalapuikot");
     }
     
     @Test
     public void testToimiikoHaeVaikeusaste(){
-        assertEquals (ruokakortisto.haeVaikeusaste(), 5);
+        assertEquals (ruokakortisto.haeVaikeusaste(), 5);  
+    }
+    
+    @Test
+    public void testToimiikoHeVaikeusaste1(){
+        assertEquals (ruokakortisto1.haeVaikeusaste(), 0);
     }
     
     @Test
@@ -58,6 +69,10 @@ public class RuokakortistoTest {
     }
     
     @Test
+    public void testToimiikoHaeKategoria1(){
+        assertEquals (ruokakortisto1.haeKategoria(), "");   
+    }
+    @Test
     public void testToimiikoLisaaResepti(){
         ruokakortisto.lisaaResepti("kanavartaat");
         assertEquals (ruokakortisto.haeResepti("kanavartaat"), true);
@@ -65,6 +80,9 @@ public class RuokakortistoTest {
     
     @Test
     public void testToimiikoHaeResepti(){
-        
+        ruokakortisto.lisaaResepti("kalapuikot");
+        assertEquals (ruokakortisto.haeResepti("kanavartaat"), false);
     }
+    
+    
 }

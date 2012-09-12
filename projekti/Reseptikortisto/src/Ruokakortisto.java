@@ -19,7 +19,12 @@ public class Ruokakortisto {
             this.vaikeusaste = vaikeusaste;
         }
     }
-
+    public Ruokakortisto(String nimi){
+        this.nimi = nimi;
+        vaikeusaste = 0;
+        kategoria = "";
+    }
+    
     public String haeNimi() {
 
         return nimi;
