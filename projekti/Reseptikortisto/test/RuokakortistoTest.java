@@ -42,6 +42,6 @@ public class RuokakortistoTest {
     
     @Test
      public void testRuokakortistonLuonti(){
-        Ruokakortisto ruokakortisto = new Ruokakortisto("ruokakortisto", 5);
+        Ruokakortisto ruokakortisto = new Ruokakortisto("kanavartaat", 5, "kana");
     }
 }

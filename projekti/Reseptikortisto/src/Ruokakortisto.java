@@ -6,7 +6,7 @@ public class Ruokakortisto {
     String kategoria;
     ArrayList<String> reseptit = new ArrayList<String>();
 
-    public Ruokakortisto(String nimi, int vaikeusaste) {
+    public Ruokakortisto(String nimi, int vaikeusaste, String kategoria) {
         this.nimi = nimi;
         this.vaikeusaste = vaikeusaste;
     }
