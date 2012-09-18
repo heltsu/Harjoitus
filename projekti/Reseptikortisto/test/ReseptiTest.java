@@ -14,11 +14,11 @@ import static org.junit.Assert.*;
  *
  * @author hniemima
  */
-public class RuokakortistoTest {
-    Ruokakortisto ruokakortisto;
-    Ruokakortisto ruokakortisto1;
+public class ReseptiTest {
+    Resepti resepti;
+    Resepti resepti1;
     
-    public RuokakortistoTest() {
+    public ReseptiTest() {
     }
     
     @BeforeClass
@@ -31,8 +31,8 @@ public class RuokakortistoTest {
     
     @Before
     public void setUp() {
-        ruokakortisto = new Ruokakortisto ("kanavartaat", 6, "kana");
-        ruokakortisto1 =new Ruokakortisto ("kalapuikot");
+        resepti = new Resepti ("kanavartaat", 6, "kana");
+        resepti1 =new Resepti ("kalapuikot");
     }
     
     @After
@@ -46,43 +46,32 @@ public class RuokakortistoTest {
     
     @Test
      public void testToimiikoHaeNimi(){
-        assertEquals (ruokakortisto.haeNimi(), "kanavartaat");     
+        assertEquals (resepti.haeNimi(), "kanavartaat");     
     }
     @Test
     public void testToimiikoHaeNimi1(){
-        assertEquals (ruokakortisto1.haeNimi(), "kalapuikot");
+        assertEquals (resepti1.haeNimi(), "kalapuikot");
     }
     
     @Test
     public void testToimiikoHaeVaikeusaste(){
-        assertEquals (ruokakortisto.haeVaikeusaste(), 5);  
+        assertEquals (resepti.haeVaikeusaste(), 5);  
     }
     
     @Test
     public void testToimiikoHeVaikeusaste1(){
-        assertEquals (ruokakortisto1.haeVaikeusaste(), 0);
+        assertEquals (resepti1.haeVaikeusaste(), 0);
     }
     
     @Test
     public void testToimiikoHaeKategoria(){
-        assertEquals (ruokakortisto.haeKategoria(), "kana");
+        assertEquals (resepti.haeKategoria(), "kana");
     }
     
     @Test
     public void testToimiikoHaeKategoria1(){
-        assertEquals (ruokakortisto1.haeKategoria(), "");   
+        assertEquals (resepti1.haeKategoria(), "ei määritelty");   
     }
-    @Test
-    public void testToimiikoLisaaResepti(){
-        ruokakortisto.lisaaResepti("kanavartaat");
-        assertEquals (ruokakortisto.haeResepti("kanavartaat"), true);
-    }
-    
-    @Test
-    public void testToimiikoHaeResepti(){
-        ruokakortisto.lisaaResepti("kalapuikot");
-        assertEquals (ruokakortisto.haeResepti("kanavartaat"), false);
-    }
-    
+   
     
 }
