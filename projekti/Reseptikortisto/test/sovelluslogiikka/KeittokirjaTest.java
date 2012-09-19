@@ -54,7 +54,7 @@ public class KeittokirjaTest {
     @Test
     public void testToimiikoLisaaResepti(){
        herkut.lisaaResepti(kanavartaat);
-       assertEquals(herkut.loytyykoResepti(kanavartaat), true);
+       assertTrue(herkut.loytyykoResepti(kanavartaat));
     }
     
     @Test 
@@ -66,7 +66,7 @@ public class KeittokirjaTest {
     
     @Test
     public void testToimiikoHaeResepti(){
-        assertEquals (herkut.haeResepti(kalapuikot), false);
+        assertFalse(herkut.haeResepti(kalapuikot));
     }  
     
   /*  @Test

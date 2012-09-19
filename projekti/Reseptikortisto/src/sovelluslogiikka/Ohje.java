@@ -14,6 +14,7 @@ public class Ohje {
         this.vaihe = vaihe;
     }
     
+    @Override
     public String toString(){
          return vaihe;
     }
