@@ -1,3 +1,5 @@
+package sovelluslogiikka;
+
 
 public class Raakaaine {
 

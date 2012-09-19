@@ -1,3 +1,5 @@
+package sovelluslogiikka;
+
 //sisältää reseptit
 //Admin voi lisätä, poistaa ja muokata reseptejä
 import java.util.*;

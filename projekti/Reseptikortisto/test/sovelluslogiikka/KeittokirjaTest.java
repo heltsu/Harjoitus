@@ -1,12 +1,14 @@
-import java.util.*;
+package sovelluslogiikka;
 
+import sovelluslogiikka.Resepti;
+import sovelluslogiikka.Keittokirja;
+import java.util.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author heli
@@ -58,7 +60,7 @@ public class KeittokirjaTest {
     @Test 
      public void testToimiikoPoistaResepti(){
         herkut.poistaResepti(kanavartaat);
-        assertEquals(herkut.loytyykoResepti(kanavartaat), false);
+        assertFalse(herkut.loytyykoResepti(kanavartaat));
     }
     
     

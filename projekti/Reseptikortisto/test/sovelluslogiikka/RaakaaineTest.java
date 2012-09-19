@@ -1,8 +1,11 @@
+package sovelluslogiikka;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import sovelluslogiikka.Raakaaine;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

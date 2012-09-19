@@ -1,3 +1,5 @@
+package sovelluslogiikka;
+
 // Voi lisätä, poistaa ja muokata reseptejä
 public class Omistaja {
     
