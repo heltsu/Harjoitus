@@ -20,6 +20,9 @@ public class KeittokirjaTest {
     Resepti kanavartaat;
     Resepti kalapuikot;
     Resepti kala;
+    Resepti pippuripihvi;
+    Resepti kanapullat;
+    Resepti marjaherkku;
     
     
     public KeittokirjaTest() {
@@ -38,8 +41,12 @@ public class KeittokirjaTest {
     public void setUp() {
     herkut = new Keittokirja();
     herkut1 = new Keittokirja();
-    kanavartaat = new Resepti("kanavartaat");
+    kanavartaat = new Resepti("kanavartaat", 5, "kana");
     kalapuikot = new Resepti ("kalapuikot", 2, "kala");
+    pippuripihvi = new Resepti ("pippuripihvi", 5, "liha");
+    kanapullat = new Resepti ("kanapullat", 5, "kana");
+    marjaherkku = new Resepti ("marjaherkku", 3, "herkut");
+    
     }
     
     @After
@@ -48,29 +55,47 @@ public class KeittokirjaTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-     @Test
+    @Test
     public void hello() {}
      
     @Test
     public void testToimiikoLisaaResepti(){
        herkut.lisaaResepti(kanavartaat);
-       assertTrue(herkut.loytyykoResepti(kanavartaat));
+       assertEquals(herkut.haeResepti("kanavartaat"), herkut.kirja);   
     }
     
     @Test 
      public void testToimiikoPoistaResepti(){
         herkut.poistaResepti(kanavartaat);
-        assertFalse(herkut.loytyykoResepti(kanavartaat));
+        assertEquals(herkut.haeResepti("kanavartaat"), herkut.kirja);
     }
     
     
     @Test
     public void testToimiikoHaeResepti(){
-        assertFalse(herkut.haeResepti(kalapuikot));
+        assertEquals(herkut.haeResepti("kalapuikot"), herkut.kirja);
     }  
     
-  /*  @Test
+   @Test
     public void testToimiikoHaeReseptiLaatu(){
-        assertEquals (herkut.haeReseptit(kala), true);
-    }*/
+        herkut1.lisaaResepti(kalapuikot);
+        assertEquals (herkut1.haeReseptit("kala"), herkut1.kirja);
+    }
+   @Test
+   public void testToimiikoHaeReseptitLaatuVaikeusaste(){
+       herkut1.lisaaResepti(kanavartaat);
+       assertEquals (herkut1.haeReseptit("kana", 5), herkut1.kirja);
+   }
+   
+   @Test
+   public void testToimiikoHaeReseptitLaatuVaikeusaste1(){
+       herkut1.lisaaResepti(marjaherkku);
+       assertEquals(herkut1.haeReseptit("herkut", 3), herkut1.kirja);
+   }
+   
+   @Test
+   public void testToimiikoLisaaResepti1(){
+       herkut.lisaaResepti(marjaherkku);
+       assertEquals(herkut.haeResepti("marjaherkku"), herkut.kirja);
+   }
 }

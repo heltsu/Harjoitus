@@ -10,7 +10,13 @@ public class Resepti {
     String kategoria;
     ArrayList<Raakaaine> raakaaineet = new ArrayList<Raakaaine>();
     ArrayList<Ohje> tyovaiheet = new ArrayList<Ohje>();
-
+    
+    /**
+     * luo resepti olion
+     * @param nimi käyttäjän antama reseptin nimi
+     * @param vaikeusaste käyttäjän antama vaikeusaste reseptille
+     * @param kategoria käyttäjän antama kategoria
+     */
     public Resepti(String nimi, int vaikeusaste, String kategoria) {
 
         this.nimi = nimi;
@@ -24,12 +30,21 @@ public class Resepti {
         }
     }
 
+    /**
+     * luo resepti olion
+     * @param nimi käyttäjän antama reseptin nimi
+     */
     public Resepti(String nimi) {
         this.nimi = nimi;
         vaikeusaste = 0;
         kategoria = "ei määritelty";
     }
 
+    /**
+     * tarkistaa, että reseptin vaikeusaste on välillä 1-5. Jos yritetään
+     * antaa välille sopimatonta vaikeusastetta korjataan se oikeaksi. 
+     * @param vaikeusaste käyttäjän antama vaikeusaste
+     */
     private void tarkistaVaikeusaste(int vaikeusaste) {
 
         if (vaikeusaste <= 1) {
@@ -41,14 +56,23 @@ public class Resepti {
         }
     }
 
+    /**
+     * tarkistetaan, että käyttäjän antama kategoria on kelvollinen
+     * @param kategoria käyttäjän antama tieto
+     * @return hyväksyy tai hylkää 
+     */
     private boolean tarkistaKategoria(String kategoria) {
-        if (kategoria == "liha" || kategoria == "kala" || kategoria == "kana"
-                || kategoria == "kasvis" || kategoria == "herkut") {
+        if (kategoria.equals("liha") || kategoria.equals("kala") || kategoria.equals("kana")
+                || kategoria.equals("kasvis") || kategoria.equals("herkut")) {
             return true;
         }
         return false;
     }
 
+    /**
+     * vaihdetaan reseptin kategoria halutuksi
+     * @param kategoria käyttäjän antama tieto
+     */
     public void vaihdaKategoria(String kategoria) {
         if (tarkistaKategoria(kategoria)) {
             this.kategoria = kategoria;
@@ -57,6 +81,10 @@ public class Resepti {
         }
     }
 
+    /**
+     * vaihdetaan reseptin vaikeusate halutuksi
+     * @param vaikeusaste käyttäjän antama tieto
+     */
     public void vaihdaVaikeusaste(int vaikeusaste) {
         tarkistaVaikeusaste(vaikeusaste);
     }
@@ -76,18 +104,26 @@ public class Resepti {
         return vaikeusaste;
     }
 
+    /**
+     * lisätään reseptille raaka-aine
+     * @param aine käyttäjän antama tieto, Raakaaine olion nimi
+     */
     public void lisaaRaakaaine(Raakaaine aine) {
 
         raakaaineet.add(aine);
     }
     
+    /**
+     * lisätään reseptille ohjeen tekovaihe 
+     * @param vaihe käyttäjän antama tieto,Ohje olion nimi
+     */
     public void lisaaVaihe(Ohje vaihe){
     
         tyovaiheet.add(vaihe);
     }
 
     public String toString() {
-        return  nimi + "\n" + "kategoria: " + kategoria + "\n" + "vaikeusaste:"
+        return  "\n" + "\n"+ "nimi: " + nimi + "\n" + "kategoria: " + kategoria + "\n" + "vaikeusaste:"
                 + " " + vaikeusaste + "\n" + raakaaineet + "\n" +tyovaiheet;
     }
 }

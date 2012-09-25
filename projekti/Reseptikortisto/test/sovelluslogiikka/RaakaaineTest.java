@@ -77,7 +77,7 @@ public class RaakaaineTest {
 
     @Test
     public void toimiikoKorjaaMaara1() {
-        raakaaine1.korjaaMaara(25);
+        raakaaine1.korjaaMaara(1001);
         assertEquals(0, raakaaine1.haeMaara(), 0.001);
     }
 }

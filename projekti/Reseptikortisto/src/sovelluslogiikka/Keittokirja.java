@@ -10,40 +10,81 @@ public class Keittokirja {
 
     public Keittokirja() {
     }
+    
+    /**
+     * etsitään haluttu resepti keittokirjasta reseptin nimen avulla
+     * @param reseptin_nimi, käyttäjän antama reseptin nimi
+     * @return haluttu resepti
+     */
+    public ArrayList<Resepti> haeResepti(String reseptin_nimi) {
 
-    public boolean haeResepti(Resepti nimi) {
-        if (kirja.contains(nimi)) {
-            return true;
-        } else {
-            return false;
+        ArrayList<Resepti> nimet = new ArrayList<Resepti>();
+
+        for (Resepti nimi : kirja) {
+            if (nimi.haeNimi().equals(reseptin_nimi)) {
+                nimet.add(nimi);
+            }
         }
+        return nimet;
     }
 
-    public void haeReseptit(Resepti laatu) {
+    /**
+     * etsitään tiettyyn kategoriaan kuuluva resepti keittokirjasta
+     * @param kategoria, käyttäjän antama kategoria
+     * @return annettuun kategoriaan kuuluvat reseptit
+     */
+    public ArrayList<Resepti> haeReseptit(String kategoria) {
+
+        ArrayList<Resepti> kategorialista = new ArrayList<Resepti>();
+
+        for (Resepti nimi : kirja){
+            if (nimi.haeKategoria().equals(kategoria)){
+                kategorialista.add(nimi);
+            }
+        }
+        return kategorialista;
+    }
+
+    /**
+     * etsitään haluttuun kategoriaan ja tietyn vaikeusasteen omaavat reseptit
+     * @param kategoria käyttäjän antama kategoriatieto
+     * @param vaikeusaste käyttäjän antama tieto
+     * @return halutut reseptit
+     */    
+    public ArrayList<Resepti> haeReseptit(String kategoria, int vaikeusaste) {
         
-    }
-
-    public void haeReseptit(Resepti laatu, Resepti vaikeusaste) {
+        ArrayList<Resepti> molemmat = new ArrayList<Resepti>();
         
+        for (Resepti nimi : kirja){
+            if (nimi.haeKategoria().equals(kategoria) && nimi.haeVaikeusaste()==(vaikeusaste)){
+                molemmat.add(nimi);
+            }
+        }
+        return molemmat;
     }
-
+    /**
+     * poistaResepti poistaa keittokirjasta halutun reseptin
+     * @param nimi Käyttäjän antama syöte, reseptin nimi
+     * 
+     */
     public void poistaResepti(Resepti nimi) {
-        kirja.remove(nimi);
+        if (kirja.contains(nimi)) {
+            kirja.remove(nimi);
+        }
         //vain AD voi poistaa
     }
-
-    public void lisaaResepti(Resepti nimi) {
-        kirja.add(nimi);
+    /**
+     * lisaaResepti lisätään keittokirjaan haluttu resepti
+     * @param resepti käyttäjän antama syöte
+     */
+    public void lisaaResepti(Resepti resepti) {
+        kirja.add(resepti);
         //vain AD voi lisätä
     }
-
-    public boolean loytyykoResepti(Resepti nimi) {
-        if (kirja.contains(nimi)) {
-            return true;
-        }
-            return false;
-    }
-
+    /**
+     * muokkaaReseptiä avulla voi korjata / muuttaa reseptillä olevia tietoja
+     * @param nimi syöttäjän antama syöte
+     */
     public void muokkaaReseptia(String nimi) {
         //vain AD voi muokata
     }

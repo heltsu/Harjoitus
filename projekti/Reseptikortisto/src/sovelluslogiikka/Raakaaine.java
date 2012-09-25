@@ -7,13 +7,22 @@ public class Raakaaine {
     private String laatu;
     private double maara;
 
-    public Raakaaine(String nimi) {
-        //Konstruktori luo olion jolle on annettu vain nimi
+    /**
+     * Luodaan Raakaaine olio 
+     * @param nimi käyttäjän antama raaka-aineen nimi
+     */
+    public Raakaaine(String nimi) { 
         this.nimi = nimi;
         laatu = "?";
         maara = 0;
     }
 
+    /**
+     * luodaan Raakaaine olio
+     * @param nimi käyttäjän antama raaka-aineen nimi
+     * @param laatu käyttäjän antama määrän laatu esim. g, dl, tl
+     * @param maara kuinka paljon raaka-ainetta tarvitaan
+     */
     public Raakaaine(String nimi, String laatu, double maara) {
         //Konstruktorilla luodaan olio jolle annetaan nimi,
         //tarvittava määrä ja määrän laatuyksikkö
@@ -31,14 +40,20 @@ public class Raakaaine {
         }
     }
 
+    /** 
+     * korjataan väärin kirjoitetun raaka-aineen nimi
+     * @param nimi käyttäjän antama raaka-aineen nimi
+     */
     public void korjaaNimi(String nimi) {
-        //metodilla voidaan korjata väärin kirjoitetun ainesosan nimi
         this.nimi = nimi;
     }
 
+    /**
+     * korjataan / vaihdetaan tarvittavan raaka-aineen määrän laatuyksikkö 
+     * oikeaksi
+     * @param laatu käyttäjän antama laadun tieto 
+     */
     public void korjaaLaatu(String laatu) {
-        //metodilla voidaan korjata / vaihtaa tarvittavan ainesosan määrän 
-        //laatuyksikkö oikeaksi
         if (tarkistaLaatu(laatu)) {
             this.laatu = laatu;
         } else {
@@ -46,8 +61,11 @@ public class Raakaaine {
         }
     }
 
+    /**
+     * korjataana tarvittavan raaka-aineen määrä oikeaksi
+     * @param maara käyttäjän antama raaka-aineen oikea määrä 
+     */
     public void korjaaMaara(double maara) {
-        //metodilla voidaan korjata tarvita määrä oikeaksi
         if (tarkistaMaara(maara)) {
             this.maara = maara;
         } else {
@@ -55,18 +73,26 @@ public class Raakaaine {
         }
     }
 
+    /**
+     * tarkistetaan annetun laadun kelvollisuus
+     * @param laatu käyttäjän antama tieto 
+     * @return hyväksyy tai hylkää annetun tiedon
+     */
     private boolean tarkistaLaatu(String laatu) {
-        //tarkistetaan, että annettu laatu on kelvollinen
-        if (laatu == "g" || laatu == "kg" || laatu == "dl" || laatu == "l"
-                || laatu == "rkl" || laatu == "tl" || laatu == "kpl") {
+        if (laatu.equals("g") || laatu.equals("kg") || laatu.equals("dl") || laatu.equals("l")
+                || laatu.equals("rkl") || laatu.equals("tl") || laatu.equals("kpl")) {
             return true;
         }
         return false;
     }
 
+    /**
+     * tarkistetaan, että käyttäjän antama määrä on sallitulla välillä
+     * @param maara käyttäjän antama tieto
+     * @return hvyäksyy tai hylkää
+     */
     private boolean tarkistaMaara(double maara) {
-        //tarkistetaan, että annettu määrä on kelvollinen
-        if (maara >= 1 && maara <= 20) {
+        if (maara >= 1 && maara <= 1000) {
             return true;
         }
         return false;
