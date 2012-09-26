@@ -118,7 +118,7 @@ public class Resepti {
 
         raakaaineet.add(aine);
     }
-    
+
     /**
      * poistetaan raaka-aine reseptiltä
      * 
@@ -130,20 +130,23 @@ public class Resepti {
             raakaaineet.remove(aine);
         }
     }
+
     /**
      * haetaan haluttu raaka-aine
-     * @param nimi käyttäjän antama tieto, Raaka-aine olion nimi
+     * @param nimi käyttäjän antama tieto
      * @return 
      */
-    public ArrayList<Raakaaine> haeRaakaaine(Raakaaine nimi) {
+    
+    public ArrayList<Raakaaine> haeRaakaaine(String nimi) {
 
-        ArrayList<Raakaaine> haetut = new ArrayList<Raakaaine>();
+        ArrayList<Raakaaine> aineet = new ArrayList<Raakaaine>();
+
         for (Raakaaine rnimi : raakaaineet) {
-            if (rnimi.haeNimi().equals(kategoria)) {
-                haetut.add(rnimi);
+            if (rnimi.haeNimi().equals(nimi)) {
+                aineet.add(rnimi);
             }
         }
-        return haetut;
+        return aineet;
     }
 
     /**
@@ -160,4 +163,6 @@ public class Resepti {
         return "\n" + "\n" + "nimi: " + nimi + "\n" + "kategoria: " + kategoria + "\n" + "vaikeusaste:"
                 + " " + vaikeusaste + "\n" + raakaaineet + "\n" + tyovaiheet;
     }
+    
+    
 }

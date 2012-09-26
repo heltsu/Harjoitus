@@ -21,6 +21,7 @@ public class ReseptiTest {
     Resepti resepti;
     Resepti resepti1;
     Resepti resepti2;
+    Raakaaine kana;
     
     public ReseptiTest() {
     }
@@ -38,6 +39,7 @@ public class ReseptiTest {
         resepti = new Resepti ("kanavartaat", 6, "kana");
         resepti1 = new Resepti ("kalapuikot");
         resepti2 = new Resepti ("lihapullat", -2, "herkut"); 
+        
         
     }
     
@@ -79,10 +81,11 @@ public class ReseptiTest {
         assertEquals (resepti1.haeKategoria(), "ei määritelty");   
     }
     
-   /* @Test
+   @Test
     public void testToimiikoHaeRaakaaine(){
-        assertEquals (resepti1.haeRaakaaine(kala), "kala");
-    }*/
+       resepti.lisaaRaakaaine(kana);
+        assertEquals (resepti.haeRaakaaine("kana"), resepti.raakaaineet);
+    }
    
     
 }

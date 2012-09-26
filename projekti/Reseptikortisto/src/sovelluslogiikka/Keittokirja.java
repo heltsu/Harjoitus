@@ -5,21 +5,21 @@ package sovelluslogiikka;
 import java.util.*;
 
 public class Keittokirja {
-
+    
     ArrayList<Resepti> kirja = new ArrayList<Resepti>();
-
+    
     public Keittokirja() {
     }
-    
+
     /**
      * etsitään haluttu resepti keittokirjasta reseptin nimen avulla
      * @param reseptin_nimi, käyttäjän antama reseptin nimi
      * @return haluttu resepti
      */
     public ArrayList<Resepti> haeResepti(String reseptin_nimi) {
-
+        
         ArrayList<Resepti> nimet = new ArrayList<Resepti>();
-
+        
         for (Resepti nimi : kirja) {
             if (nimi.haeNimi().equals(reseptin_nimi)) {
                 nimet.add(nimi);
@@ -34,11 +34,11 @@ public class Keittokirja {
      * @return annettuun kategoriaan kuuluvat reseptit
      */
     public ArrayList<Resepti> haeReseptit(String kategoria) {
-
+        
         ArrayList<Resepti> kategorialista = new ArrayList<Resepti>();
-
-        for (Resepti nimi : kirja){
-            if (nimi.haeKategoria().equals(kategoria)){
+        
+        for (Resepti nimi : kirja) {
+            if (nimi.haeKategoria().equals(kategoria)) {
                 kategorialista.add(nimi);
             }
         }
@@ -55,24 +55,28 @@ public class Keittokirja {
         
         ArrayList<Resepti> molemmat = new ArrayList<Resepti>();
         
-        for (Resepti nimi : kirja){
-            if (nimi.haeKategoria().equals(kategoria) && nimi.haeVaikeusaste()==(vaikeusaste)){
+        for (Resepti nimi : kirja) {
+            if (nimi.haeKategoria().equals(kategoria) && nimi.haeVaikeusaste() == (vaikeusaste)) {
                 molemmat.add(nimi);
             }
         }
         return molemmat;
     }
-  /*  
-    public ArrayList<Resepti> haeReseptitIlmanRaakaainetta(String raakaaine){
-       
-        ArrayList<Resepti>ilmanainetta = new ArrayList<Resepti>();
+    
+    public ArrayList<Resepti> haeReseptitIlmanRaakaainetta(String raakaaine) {
         
-        for (Resepti : raakaaineet){
-            if (nimi.haeNimi().(raakaaine)){
-                
-            }}
+        ArrayList<Resepti> ilmanainetta = new ArrayList<Resepti>();
+        
+        for (Resepti nimi : kirja) {
+            for (Raakaaine raakanimi : raakaaineet) {                
+                if (nimi.haeNimi().equals(raakanimi)) {
+                    ilmanainetta.add(nimi);
+                }
+            }
+        }
         return ilmanainetta;
-    }*/
+    }
+
     /**
      * poistaResepti poistaa keittokirjasta halutun reseptin
      * @param nimi Käyttäjän antama syöte, reseptin nimi
@@ -84,6 +88,7 @@ public class Keittokirja {
         }
         //vain AD voi poistaa
     }
+
     /**
      * lisaaResepti lisätään keittokirjaan haluttu resepti
      * @param resepti käyttäjän antama syöte
@@ -92,6 +97,7 @@ public class Keittokirja {
         kirja.add(resepti);
         //vain AD voi lisätä
     }
+
     /**
      * muokkaaReseptiä avulla voi korjata / muuttaa reseptillä olevia tietoja
      * @param nimi syöttäjän antama syöte
@@ -100,8 +106,6 @@ public class Keittokirja {
         //vain AD voi muokata
     }
     
-    
-
     public String ToString() {
         return "" + kirja;
     }

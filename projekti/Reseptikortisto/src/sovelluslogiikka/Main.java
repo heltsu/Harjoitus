@@ -43,16 +43,19 @@ uuniomena2.lisaaVaihe(omenaohje2);
 keittokirja.lisaaResepti(uuniomena);
 keittokirja.lisaaResepti(uuniomena2);
 keittokirja.lisaaResepti(silakkapihvit);
+uuniomena.haeRaakaaine("omenaa");
        
        
         
        // uuniomena.vaihdaKategoria("herkut");
-        System.out.println(keittokirja.kirja);
+      //  System.out.println(keittokirja.kirja);
         
         
-        System.out.println(keittokirja.haeResepti("Uuniomenat"));
-        System.out.println(keittokirja.haeReseptit("kala"));
-    System.out.println(keittokirja.haeReseptit("kala", 2));
+      //  System.out.println(keittokirja.haeResepti("Uuniomenat"));
+       // System.out.println(keittokirja.haeReseptit("kala"));
+    //System.out.println(keittokirja.haeReseptit("kala", 2));
+    
+    System.out.println(uuniomena.haeRaakaaine("omena"));
        
     }
 }

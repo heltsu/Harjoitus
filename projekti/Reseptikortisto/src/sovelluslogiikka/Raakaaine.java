@@ -2,9 +2,9 @@ package sovelluslogiikka;
 
 public class Raakaaine {
 
-    private String nimi;
-    private String laatu;
-    private double maara;
+    public String nimi;
+    public String laatu;
+    public double maara;
 
     /**
      * Luodaan Raakaaine olio
