@@ -20,6 +20,7 @@ import static org.junit.Assert.*;
 public class ReseptiTest {
     Resepti resepti;
     Resepti resepti1;
+    Resepti resepti2;
     
     public ReseptiTest() {
     }
@@ -35,7 +36,9 @@ public class ReseptiTest {
     @Before
     public void setUp() {
         resepti = new Resepti ("kanavartaat", 6, "kana");
-        resepti1 =new Resepti ("kalapuikot");
+        resepti1 = new Resepti ("kalapuikot");
+        resepti2 = new Resepti ("lihapullat", -2, "herkut"); 
+        
     }
     
     @After
@@ -75,6 +78,11 @@ public class ReseptiTest {
     public void testToimiikoHaeKategoria1(){
         assertEquals (resepti1.haeKategoria(), "ei määritelty");   
     }
+    
+   /* @Test
+    public void testToimiikoHaeRaakaaine(){
+        assertEquals (resepti1.haeRaakaaine(kala), "kala");
+    }*/
    
     
 }

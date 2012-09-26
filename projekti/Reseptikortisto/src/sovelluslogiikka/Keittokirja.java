@@ -62,6 +62,17 @@ public class Keittokirja {
         }
         return molemmat;
     }
+  /*  
+    public ArrayList<Resepti> haeReseptitIlmanRaakaainetta(String raakaaine){
+       
+        ArrayList<Resepti>ilmanainetta = new ArrayList<Resepti>();
+        
+        for (Resepti : raakaaineet){
+            if (nimi.haeNimi().(raakaaine)){
+                
+            }}
+        return ilmanainetta;
+    }*/
     /**
      * poistaResepti poistaa keittokirjasta halutun reseptin
      * @param nimi Käyttäjän antama syöte, reseptin nimi
@@ -88,6 +99,8 @@ public class Keittokirja {
     public void muokkaaReseptia(String nimi) {
         //vain AD voi muokata
     }
+    
+    
 
     public String ToString() {
         return "" + kirja;

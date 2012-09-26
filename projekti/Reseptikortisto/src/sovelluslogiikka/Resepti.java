@@ -1,6 +1,5 @@
 package sovelluslogiikka;
 
-
 import java.util.*;
 
 public class Resepti {
@@ -10,9 +9,10 @@ public class Resepti {
     String kategoria;
     ArrayList<Raakaaine> raakaaineet = new ArrayList<Raakaaine>();
     ArrayList<Ohje> tyovaiheet = new ArrayList<Ohje>();
-    
+
     /**
      * luo resepti olion
+     *
      * @param nimi käyttäjän antama reseptin nimi
      * @param vaikeusaste käyttäjän antama vaikeusaste reseptille
      * @param kategoria käyttäjän antama kategoria
@@ -20,9 +20,9 @@ public class Resepti {
     public Resepti(String nimi, int vaikeusaste, String kategoria) {
 
         this.nimi = nimi;
-        
+
         tarkistaVaikeusaste(vaikeusaste);
-        
+
         if (tarkistaKategoria(kategoria)) {
             this.kategoria = kategoria;
         } else {
@@ -32,6 +32,7 @@ public class Resepti {
 
     /**
      * luo resepti olion
+     *
      * @param nimi käyttäjän antama reseptin nimi
      */
     public Resepti(String nimi) {
@@ -41,8 +42,9 @@ public class Resepti {
     }
 
     /**
-     * tarkistaa, että reseptin vaikeusaste on välillä 1-5. Jos yritetään
-     * antaa välille sopimatonta vaikeusastetta korjataan se oikeaksi. 
+     * tarkistaa, että reseptin vaikeusaste on välillä 1-5. Jos yritetään antaa
+     * välille sopimatonta vaikeusastetta korjataan se oikeaksi.
+     *
      * @param vaikeusaste käyttäjän antama vaikeusaste
      */
     private void tarkistaVaikeusaste(int vaikeusaste) {
@@ -58,8 +60,9 @@ public class Resepti {
 
     /**
      * tarkistetaan, että käyttäjän antama kategoria on kelvollinen
+     *
      * @param kategoria käyttäjän antama tieto
-     * @return hyväksyy tai hylkää 
+     * @return hyväksyy tai hylkää
      */
     private boolean tarkistaKategoria(String kategoria) {
         if (kategoria.equals("liha") || kategoria.equals("kala") || kategoria.equals("kana")
@@ -71,6 +74,7 @@ public class Resepti {
 
     /**
      * vaihdetaan reseptin kategoria halutuksi
+     *
      * @param kategoria käyttäjän antama tieto
      */
     public void vaihdaKategoria(String kategoria) {
@@ -83,6 +87,7 @@ public class Resepti {
 
     /**
      * vaihdetaan reseptin vaikeusate halutuksi
+     *
      * @param vaikeusaste käyttäjän antama tieto
      */
     public void vaihdaVaikeusaste(int vaikeusaste) {
@@ -106,6 +111,7 @@ public class Resepti {
 
     /**
      * lisätään reseptille raaka-aine
+     *
      * @param aine käyttäjän antama tieto, Raakaaine olion nimi
      */
     public void lisaaRaakaaine(Raakaaine aine) {
@@ -114,16 +120,44 @@ public class Resepti {
     }
     
     /**
-     * lisätään reseptille ohjeen tekovaihe 
+     * poistetaan raaka-aine reseptiltä
+     * 
+     * @param aine käyttäjän antama tieto, Raakaaine olion nimi
+     */
+    public void poistaRaakaaine(Raakaaine aine) {
+
+        if (raakaaineet.contains(aine)) {
+            raakaaineet.remove(aine);
+        }
+    }
+    /**
+     * haetaan haluttu raaka-aine
+     * @param nimi käyttäjän antama tieto, Raaka-aine olion nimi
+     * @return 
+     */
+    public ArrayList<Raakaaine> haeRaakaaine(Raakaaine nimi) {
+
+        ArrayList<Raakaaine> haetut = new ArrayList<Raakaaine>();
+        for (Raakaaine rnimi : raakaaineet) {
+            if (rnimi.haeNimi().equals(kategoria)) {
+                haetut.add(rnimi);
+            }
+        }
+        return haetut;
+    }
+
+    /**
+     * lisätään reseptille ohjeen tekovaihe
+     *
      * @param vaihe käyttäjän antama tieto,Ohje olion nimi
      */
-    public void lisaaVaihe(Ohje vaihe){
-    
+    public void lisaaVaihe(Ohje vaihe) {
+
         tyovaiheet.add(vaihe);
     }
 
     public String toString() {
-        return  "\n" + "\n"+ "nimi: " + nimi + "\n" + "kategoria: " + kategoria + "\n" + "vaikeusaste:"
-                + " " + vaikeusaste + "\n" + raakaaineet + "\n" +tyovaiheet;
+        return "\n" + "\n" + "nimi: " + nimi + "\n" + "kategoria: " + kategoria + "\n" + "vaikeusaste:"
+                + " " + vaikeusaste + "\n" + raakaaineet + "\n" + tyovaiheet;
     }
 }

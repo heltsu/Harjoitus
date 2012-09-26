@@ -4,7 +4,6 @@ package sovelluslogiikka;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import sovelluslogiikka.Raakaaine;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -81,22 +80,33 @@ public class RaakaaineTest {
         raakaaine1.korjaaMaara(1001);
         assertEquals(0, raakaaine1.haeMaara(), 0.001);
     }
-    
+
     @Test
-    public void toimiikoKorjaaMaara2(){
+    public void toimiikoKorjaaMaara2() {
         raakaaine.korjaaMaara(-2);
-        assertEquals(0,raakaaine.haeMaara(), 0.001);
-        }
-    
+        assertEquals(0, raakaaine.haeMaara(), 0.001);
+    }
+
     @Test
-    public void toimiikoMaarallaOikeaLaatu(){
+    public void toimiikoMaarallaOikeaLaatu() {
         raakaaine.korjaaMaara(25);
         assertEquals(0, raakaaine.haeMaara(), 0.001);
     }
-    
+
     @Test
-    public void toimiikoMaarallaOikeaLaatu1(){
+    public void toimiikoMaarallaOikeaLaatu1() {
         raakaaine2.korjaaMaara(1000);
-        assertEquals(2, raakaaine.haeMaara(), 0.001);
+        assertEquals(0, raakaaine2.haeMaara(), 0.001);
     }
+
+    @Test
+    public void toimiikoMaarallaOikeaLaatu2() {
+        raakaaine2.korjaaMaara(999);
+        assertEquals(999, raakaaine2.haeMaara(), 0.001);
+    }
+    @Test
+    public void toimiikoMaarallaOikeaLaatu3(){
+        raakaaine2.korjaaMaara(-5);
+        assertEquals(0, raakaaine2.haeMaara(), 0.001);
+        }
 }

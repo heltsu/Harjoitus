@@ -25,7 +25,7 @@ public class Raakaaine {
      * @param maara kuinka paljon raaka-ainetta tarvitaan
      */
     public Raakaaine(String nimi, String laatu, double maara) {
-        
+
         this.nimi = nimi;
         if (tarkistaLaatu(laatu)) {
             this.laatu = laatu;
@@ -102,37 +102,38 @@ public class Raakaaine {
         }
         return false;
     }
+
     /**
-     * tarkastaa, että annetulla määrällä on järkevä laatu, esim 600g ok, 
-     * mutta 600kg ei ok
+     * tarkastaa, että annetulla määrällä on järkevä laatu, esim 600g ok, mutta
+     * 600kg ei ok
+     *
      * @param maara Käyttäjän antama syöte
      * @return hyväksyy tai hylkää
      */
-
     private boolean tarkistaMaarallaOikeaLaatu(double maara) {
-        if (maara >= 1 && maara <= 10 && this.laatu.equals("dl") || this.laatu.equals("tl") 
+        if (maara >= 1 && maara <= 10 && this.laatu.equals("dl") || this.laatu.equals("tl")
                 || this.laatu.equals("rkl") || this.laatu.equals("kg") || this.laatu.equals("l")) {
             return true;
         }
-        if (maara >= 1 && maara <= 20 && this.laatu.equals("kpl")){
+        if (maara >= 1 && maara <= 20 && this.laatu.equals("kpl")) {
             return true;
         }
-        if (maara >=1 && maara < 1000 && this.laatu.equals("g")){
+        if (maara >= 1 && maara < 1000 && this.laatu.equals("g")) {
             return true;
         }
         return false;
     }
 
-public String haeNimi(){
+    public String haeNimi() {
         return nimi;
     }
-    
-    public String haeLaatu(){
+
+    public String haeLaatu() {
         return laatu;
     }
-    
-    public double haeMaara(){
-    return maara;
+
+    public double haeMaara() {
+        return maara;
     }
 
     public String toString() {
