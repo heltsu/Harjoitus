@@ -21,6 +21,7 @@ public class RaakaaineTest {
 
     Raakaaine raakaaine;
     Raakaaine raakaaine1;
+    Raakaaine raakaaine2;
 
     public RaakaaineTest() {
     }
@@ -37,6 +38,7 @@ public class RaakaaineTest {
     public void setUp() {
         raakaaine = new Raakaaine("omena", "kpl", 2);
         raakaaine1 = new Raakaaine("sokeri", "dl", 2.5);
+        raakaaine2 = new Raakaaine("jauheliha", "g", 500);
     }
 
     @After
@@ -66,7 +68,6 @@ public class RaakaaineTest {
     public void toimiikoKorjaaLaatu1() {
         raakaaine1.korjaaLaatu("dl");
         assertEquals(raakaaine1.haeLaatu(), "dl");
-
     }
 
     @Test
@@ -79,5 +80,23 @@ public class RaakaaineTest {
     public void toimiikoKorjaaMaara1() {
         raakaaine1.korjaaMaara(1001);
         assertEquals(0, raakaaine1.haeMaara(), 0.001);
+    }
+    
+    @Test
+    public void toimiikoKorjaaMaara2(){
+        raakaaine.korjaaMaara(-2);
+        assertEquals(0,raakaaine.haeMaara(), 0.001);
+        }
+    
+    @Test
+    public void toimiikoMaarallaOikeaLaatu(){
+        raakaaine.korjaaMaara(25);
+        assertEquals(0, raakaaine.haeMaara(), 0.001);
+    }
+    
+    @Test
+    public void toimiikoMaarallaOikeaLaatu1(){
+        raakaaine2.korjaaMaara(1000);
+        assertEquals(2, raakaaine.haeMaara(), 0.001);
     }
 }
