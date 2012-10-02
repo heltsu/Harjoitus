@@ -8,12 +8,17 @@ import java.awt.*;
 //import java.awt.Container;
 //import java.awt.Dimension;
 //import javax.swing.WindowConstants;
+import sovelluslogiikka.*;
 
 public class GraafinenKayttoliittyma implements Runnable {
 
     private JFrame ikkuna;
-
-    public GraafinenKayttoliittyma() {
+    Tapahtumankasittelija tk;
+    Kuuntelija kuuntelija;
+    
+    public GraafinenKayttoliittyma(Keittokirja kirja) {
+            tk = new Tapahtumankasittelija(kirja);
+            kuuntelija = new Kuuntelija(tk);
     }
 
     public void run() {
@@ -33,14 +38,16 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(valikko(), BorderLayout.WEST);
         container.add(otsikko(), BorderLayout.NORTH);    
         container.add(alaOsa(), BorderLayout.SOUTH);
+        container.add(new TextArea(), BorderLayout.CENTER);
     }
 
     private JPanel valikko() {
-        JPanel panel = new JPanel(new GridLayout(14, 1));
+        JPanel panel = new JPanel(new GridLayout(21, 1));
         
         JRadioButton kala = new JRadioButton("Kala");
         JRadioButton liha = new JRadioButton("Liha");
         JRadioButton kana = new JRadioButton("Kana");
+        JRadioButton kasvis = new JRadioButton ("Kasvis");
         JRadioButton herkut = new JRadioButton("Herkut");
         JRadioButton yksi = new JRadioButton("1");
         JRadioButton kaksi = new JRadioButton("2");
@@ -59,14 +66,20 @@ public class GraafinenKayttoliittyma implements Runnable {
         nippulat.add(kala);
         nippulat.add(liha);
         nippulat.add(kana);
+        nippulat.add(kasvis);
         nippulat.add(herkut);
         
         JLabel teksti1 = new JLabel("Nimi");
         JLabel teksti = new JLabel("Kategoria");
         JLabel teksti2 = new JLabel("Vaikeusaste");
+        JLabel teksti3 = new JLabel("Hae reseptit jotka eivät sisällä");
+        JLabel teksti4 = new JLabel ("Hae reseptit jotka sisältävät");
         
         JTextField nimiKentta = new JTextField();
-        
+        JTextField ei_raakaainetta = new JTextField();
+        JTextField ei_raakaainetta1 = new JTextField();
+        JTextField raakaaine = new JTextField();
+      
         JButton hae = new JButton("Hae");
         
         panel.add(teksti1);
@@ -75,6 +88,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         panel.add(kala);
         panel.add(liha);
         panel.add(kana);
+        panel.add(kasvis);
         panel.add(herkut);
         panel.add(teksti2);
         panel.add(yksi);
@@ -82,6 +96,11 @@ public class GraafinenKayttoliittyma implements Runnable {
         panel.add(kolme);
         panel.add(nelja);
         panel.add(viisi);
+        panel.add(teksti3);
+        panel.add(ei_raakaainetta);
+        panel.add(ei_raakaainetta1);
+        panel.add(teksti4);
+        panel.add(raakaaine);
         panel.add(hae);
         return panel;
 
@@ -96,9 +115,18 @@ public class GraafinenKayttoliittyma implements Runnable {
     private JPanel alaOsa(){
         JPanel alaOsa = new JPanel(new GridLayout(3, 2));
         
-        JRadioButton lisaa = new JRadioButton("Lisaa resepti");
-        JRadioButton poista = new JRadioButton("Poista resepti");
-        JRadioButton muokkaa = new JRadioButton("Muokkaa reseptiä");
+//        JRadioButton lisaa = new JRadioButton("Lisaa resepti");
+        JButton lisaa = new JButton("Lisaa resepti");
+        lisaa.addActionListener(kuuntelija);
+        
+        JButton poista = new JButton("Poista resepti");
+        poista.addActionListener(kuuntelija);
+        
+        JButton muokkaa = new JButton("Muokkaa reseptiä");
+        muokkaa.addActionListener(kuuntelija);
+
+//        JRadioButton poista = new JRadioButton("Poista resepti");
+//        JRadioButton muokkaa = new JRadioButton("Muokkaa reseptiä");
         
         ButtonGroup puttonit = new ButtonGroup();
         puttonit.add(lisaa);

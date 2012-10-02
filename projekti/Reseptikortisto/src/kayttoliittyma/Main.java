@@ -4,6 +4,7 @@
  */
 package kayttoliittyma;
 import javax.swing.SwingUtilities;
+import sovelluslogiikka.*;
 
 /**
  *
@@ -13,7 +14,10 @@ public class Main {
 
     public static void main (String[] args){      
     
-        GraafinenKayttoliittyma testi = new GraafinenKayttoliittyma();
+        Keittokirja kirja = new Keittokirja();
+
+        
+        GraafinenKayttoliittyma testi = new GraafinenKayttoliittyma(kirja);
         //testi.run();
         SwingUtilities.invokeLater(testi);
     }

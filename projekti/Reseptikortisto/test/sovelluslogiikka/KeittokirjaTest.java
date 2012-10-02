@@ -23,6 +23,9 @@ public class KeittokirjaTest {
     Resepti pippuripihvi;
     Resepti kanapullat;
     Resepti marjaherkku;
+    Raakaaine omena;
+    Raakaaine mustikka;
+    Raakaaine kaakao;
     
     
     public KeittokirjaTest() {
@@ -97,5 +100,16 @@ public class KeittokirjaTest {
    public void testToimiikoLisaaResepti1(){
        herkut.lisaaResepti(marjaherkku);
        assertEquals(herkut.haeResepti("marjaherkku"), herkut.kirja);
+   }
+   
+   @Test
+   public void testToimiikoHaeReseptitRaakaaineella(){
+        assertEquals(herkut.haeReseptitJoissaRaakaainetta(omena), herkut.kirja);
+   }
+   
+   @Test
+   public void testToimiikoHaeReseptitIlmanRaakaainetta(){
+       kanavartaat.lisaaRaakaaine(mustikka);
+       assertEquals(herkut.haeReseptitIlmanRaakaainetta(mustikka), herkut.kirja);
    }
 }

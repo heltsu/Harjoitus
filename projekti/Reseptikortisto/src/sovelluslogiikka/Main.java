@@ -25,12 +25,15 @@ Resepti silakkapihvit = new Resepti ("Silakkapihvit", 2, "kala");
 Raakaaine omena = new Raakaaine ("omenaa",  "kpl", 2);
 Raakaaine sokeri = new Raakaaine ("sokeria", "dl", 2.5);
 Raakaaine silakka = new Raakaaine ("silakoita", "g", 600);
+Raakaaine peruna = new Raakaaine ("perunoita", "kpl", 6);
+Resepti uuniperunat = new Resepti ("Uuniperunat", 1, "kasvis");
         
         uuniomena.lisaaRaakaaine(omena);
         uuniomena.lisaaRaakaaine(sokeri);
         uuniomena2.lisaaRaakaaine(omena);
         uuniomena2.lisaaRaakaaine(sokeri);
         silakkapihvit.lisaaRaakaaine(silakka);
+        uuniperunat.lisaaRaakaaine(peruna);
         
 Ohje omenaohje = new Ohje("Kuori ja paloittele omenat"); 
 uuniomena.lisaaVaihe(omenaohje);
@@ -43,9 +46,13 @@ uuniomena2.lisaaVaihe(omenaohje2);
 keittokirja.lisaaResepti(uuniomena);
 keittokirja.lisaaResepti(uuniomena2);
 keittokirja.lisaaResepti(silakkapihvit);
-uuniomena.haeRaakaaine("omenaa");
+keittokirja.lisaaResepti(uuniperunat);
+uuniomena.onkoRaakaainetta(omena);
+
+    System.out.println(keittokirja.haeReseptitIlmanRaakaaineita(silakka, omena));
+    System.out.println(keittokirja.haeReseptit("kala", 2));
        
-       
+     
         
        // uuniomena.vaihdaKategoria("herkut");
       //  System.out.println(keittokirja.kirja);
@@ -55,7 +62,7 @@ uuniomena.haeRaakaaine("omenaa");
        // System.out.println(keittokirja.haeReseptit("kala"));
     //System.out.println(keittokirja.haeReseptit("kala", 2));
     
-    System.out.println(uuniomena.haeRaakaaine("omena"));
+  //  System.out.println(keittokirja.haeReseptitJoissaRaakaainetta("omena"));
        
     }
 }

@@ -136,17 +136,22 @@ public class Resepti {
      * @param nimi käyttäjän antama tieto
      * @return 
      */
-    
-    public ArrayList<Raakaaine> haeRaakaaine(String nimi) {
+    public boolean onkoRaakaainetta(Raakaaine nimi) {
 
-        ArrayList<Raakaaine> aineet = new ArrayList<Raakaaine>();
-
-        for (Raakaaine rnimi : raakaaineet) {
-            if (rnimi.haeNimi().equals(nimi)) {
-                aineet.add(rnimi);
-            }
+        if (raakaaineet.contains(nimi)) {
+            return true;
+        } else {
+            return false;
         }
-        return aineet;
+    }
+
+    public boolean onkoRaakaaineita(Raakaaine aine, Raakaaine toinenAine) {
+
+        if (raakaaineet.contains(aine) || raakaaineet.contains(toinenAine)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -163,6 +168,4 @@ public class Resepti {
         return "\n" + "\n" + "nimi: " + nimi + "\n" + "kategoria: " + kategoria + "\n" + "vaikeusaste:"
                 + " " + vaikeusaste + "\n" + raakaaineet + "\n" + tyovaiheet;
     }
-    
-    
 }
