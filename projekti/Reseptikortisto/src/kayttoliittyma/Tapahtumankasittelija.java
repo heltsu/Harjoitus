@@ -13,16 +13,16 @@ import sovelluslogiikka.*;
  */
 public class Tapahtumankasittelija {
     
-    Keittokirja m_kirja;
+    Keittokirja ruokakirja;
     
     public Tapahtumankasittelija(Keittokirja kirja){
-        m_kirja = kirja;
+        ruokakirja = kirja;
     }
     
     public void lisaaResepti(){
         
         Resepti uuniomena = new Resepti("Uuniomenat", 2, "kala");
-        m_kirja.lisaaResepti(uuniomena);
+        ruokakirja.lisaaResepti(uuniomena);
     }
 
     public void poistaResepti(){
