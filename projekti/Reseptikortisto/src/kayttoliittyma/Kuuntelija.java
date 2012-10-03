@@ -13,21 +13,21 @@ import java.awt.event.ActionListener;
  */
 public class Kuuntelija implements ActionListener {
 
-    private Tapahtumankasittelija m_tk;
+    private Tapahtumankasittelija tapk;
     
     public Kuuntelija(Tapahtumankasittelija tk){
-        m_tk = tk;
+        tapk = tk;
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         
         if (ae.getActionCommand().equalsIgnoreCase("lisaa resepti")){
-            m_tk.lisaaResepti();
+            tapk.lisaaResepti();
         } else if (ae.getActionCommand().equalsIgnoreCase("poista resepti")){
-            m_tk.poistaResepti();
+            tapk.poistaResepti();
         } else if (ae.getActionCommand().equalsIgnoreCase("muokkaa reseptiä")){
-            m_tk.muokkaaReseptia();            
+            tapk.muokkaaReseptia();            
         }
         
     }
