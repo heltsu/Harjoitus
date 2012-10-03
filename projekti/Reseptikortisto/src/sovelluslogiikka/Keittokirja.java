@@ -7,7 +7,7 @@ import java.io.*;
 
 public class Keittokirja {
 
-    ArrayList<Resepti> kirja = new ArrayList<Resepti>();
+    ArrayList<Resepti> kirja = new ArrayList<>();
 
     public Keittokirja() {
     }
@@ -20,11 +20,11 @@ public class Keittokirja {
     
     public void tallenna(String tiedostonimi){
         try{
-            PrintWriter kirjoittaja = new PrintWriter(new File(tiedostonimi));
-            for (Resepti nimi : kirja){
-            kirjoittaja.println(nimi);
-            }   
-            kirjoittaja.close();
+            try (PrintWriter kirjoittaja = new PrintWriter(new File(tiedostonimi))) {
+                for (Resepti nimi : kirja){
+                kirjoittaja.println(nimi);
+                }
+            }
         }catch (Exception e){
             System.out.println("Virhe tallentamisessa");
         }
@@ -39,7 +39,7 @@ public class Keittokirja {
             String nimi = lukija.nextLine();
             //kirja.add(nimi);
         }
-        }catch (Exception e){
+        }catch (FileNotFoundException | NumberFormatException e){
             System.out.println("Virhe lataamisessa!");
         }
     }
@@ -51,7 +51,7 @@ public class Keittokirja {
      */
     public ArrayList<Resepti> haeResepti(String reseptin_nimi) {
 
-        ArrayList<Resepti> nimet = new ArrayList<Resepti>();
+        ArrayList<Resepti> nimet = new ArrayList<>();
 
         for (Resepti nimi : kirja) {
             if (nimi.haeNimi().equals(reseptin_nimi)) {
@@ -68,7 +68,7 @@ public class Keittokirja {
      */
     public ArrayList<Resepti> haeReseptit(String kategoria) {
 
-        ArrayList<Resepti> kategorialista = new ArrayList<Resepti>();
+        ArrayList<Resepti> kategorialista = new ArrayList<>();
 
         for (Resepti nimi : kirja) {
             if (nimi.haeKategoria().equals(kategoria)) {
@@ -86,7 +86,7 @@ public class Keittokirja {
      */
     public ArrayList<Resepti> haeReseptit(String kategoria, int vaikeusaste) {
 
-        ArrayList<Resepti> molemmat = new ArrayList<Resepti>();
+        ArrayList<Resepti> molemmat = new ArrayList<>();
 
         for (Resepti nimi : kirja) {
             if (nimi.haeKategoria().equals(kategoria) && nimi.haeVaikeusaste() == (vaikeusaste)) {
@@ -103,7 +103,7 @@ public class Keittokirja {
      */
     public ArrayList<Resepti> haeReseptitJoissaRaakaainetta(Raakaaine raakaaine) {
 
-        ArrayList<Resepti> aine = new ArrayList<Resepti>();
+        ArrayList<Resepti> aine = new ArrayList<>();
 
         for (Resepti nimi : kirja) {
             if (nimi.onkoRaakaainetta(raakaaine)) {
@@ -120,7 +120,7 @@ public class Keittokirja {
      */
     public ArrayList<Resepti> haeReseptitIlmanRaakaainetta(Raakaaine raakaaine) {
 
-        ArrayList<Resepti> ilmanainetta = new ArrayList<Resepti>();
+        ArrayList<Resepti> ilmanainetta = new ArrayList<>();
 
         for (Resepti nimi : kirja) {
             if (!nimi.onkoRaakaainetta(raakaaine)) {
@@ -138,7 +138,7 @@ public class Keittokirja {
      */
     public ArrayList<Resepti> haeReseptitIlmanRaakaaineita(Raakaaine nimi, Raakaaine toinenNimi){
     
-        ArrayList<Resepti> ilmanAineita = new ArrayList<Resepti>();
+        ArrayList<Resepti> ilmanAineita = new ArrayList<>();
         
         for (Resepti reseptinnimi : kirja){
             if (!reseptinnimi.onkoRaakaaineita(nimi, toinenNimi)){

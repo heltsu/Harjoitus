@@ -7,8 +7,8 @@ public class Resepti {
     String nimi;
     int vaikeusaste;
     String kategoria;
-    ArrayList<Raakaaine> raakaaineet = new ArrayList<Raakaaine>();
-    ArrayList<Ohje> tyovaiheet = new ArrayList<Ohje>();
+    ArrayList<Raakaaine> raakaaineet = new ArrayList<>();
+    ArrayList<Ohje> tyovaiheet = new ArrayList<>();
 
     /**
      * luo resepti olion
