@@ -7,7 +7,7 @@ import javax.swing.event.*;
 import sovelluslogiikka.*;
 import java.util.*;
 
-//public class Reseptiikkuna extends JFrame {
+
 public class Reseptiikkuna extends JFrame{
     private JFrame reseptinIkkuna;
     Tapahtumankasittelija tk;
@@ -23,6 +23,7 @@ public class Reseptiikkuna extends JFrame{
 
         reseptinIkkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+      //  luoKomponentit(reseptinIkkuna.getContentPane());
         reseptinIkkuna.pack();
         reseptinIkkuna.setVisible(true);
     }

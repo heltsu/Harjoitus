@@ -108,7 +108,7 @@ public class ReseptiFrame extends JFrame {
         raakaaine.getViewport().add(raakaainePane);
         raakaainePane.setContentType("text/html");
         raakaainePane.setEditable(false);   
-        raakaainePane.setText("Kalle");
+        raakaainePane.setText("Omena 5 kpl");
 
         ohjeLomake.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.RAISED), "Ohje"));
         ohjeLomake.setLayout(borderLayout3);
@@ -116,7 +116,7 @@ public class ReseptiFrame extends JFrame {
         ohje.getViewport().add(ohjePane);
         ohjePane.setContentType("text/html");
         ohjePane.setEditable(false);  
-        ohjePane.setText("Ville");
+        ohjePane.setText("Kuori omenat");
 
         
         //Määritellään valikkohierarkia.
