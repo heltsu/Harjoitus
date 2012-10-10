@@ -1,6 +1,7 @@
 package sovelluslogiikka;
+import java.io.*;
 
-public class Raakaaine {
+public class Raakaaine implements Serializable {
 
     public String nimi;
     public String laatu;

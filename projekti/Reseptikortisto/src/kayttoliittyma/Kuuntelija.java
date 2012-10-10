@@ -18,17 +18,29 @@ public class Kuuntelija implements ActionListener {
     public Kuuntelija(Tapahtumankasittelija tk){
         tapk = tk;
     }
+   
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         
-        if (ae.getActionCommand().equalsIgnoreCase("lisaa resepti")){
+        if (ae.getActionCommand().equalsIgnoreCase("Lisää resepti")){
             tapk.lisaaResepti();
-        } else if (ae.getActionCommand().equalsIgnoreCase("poista resepti")){
+        } else if (ae.getActionCommand().equalsIgnoreCase("Poista resepti")){
             tapk.poistaResepti();
-        } else if (ae.getActionCommand().equalsIgnoreCase("muokkaa reseptiä")){
+        } else if (ae.getActionCommand().equalsIgnoreCase("Muokkaa reseptiä")){
             tapk.muokkaaReseptia();            
-        }
+        } else if (ae.getActionCommand().equalsIgnoreCase("Kala") && ae.getActionCommand().equalsIgnoreCase("Hae")) {
+            tapk.haeReseptitKategorialla(); 
+        } else if (ae.getActionCommand().equalsIgnoreCase("Kana") && ae.getActionCommand().equalsIgnoreCase("Hae")){
+            tapk.haeReseptitKategorialla();
+        } else if (ae.getActionCommand().equalsIgnoreCase("Liha")&& ae.getActionCommand().equalsIgnoreCase("Hae") ){
+            tapk.haeReseptitKategorialla();
+        } else if (ae.getActionCommand().equalsIgnoreCase("Kasvis")&& ae.getActionCommand().equalsIgnoreCase("Hae") ){
+            tapk.haeReseptitKategorialla();
+        } else if (ae.getActionCommand().equalsIgnoreCase("Herkut")&& ae.getActionCommand().equalsIgnoreCase("Hae") ){
+            tapk.haeReseptitKategorialla();
+        } 
+
         
     }
     

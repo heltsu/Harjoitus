@@ -52,7 +52,7 @@ uuniomena.onkoRaakaainetta(omena);
     System.out.println(keittokirja.haeReseptitIlmanRaakaaineita(silakka, omena));
     System.out.println(keittokirja.haeReseptit("kala", 2));
        
-     
+    keittokirja.tallenna();
         
        // uuniomena.vaihdaKategoria("herkut");
       //  System.out.println(keittokirja.kirja);

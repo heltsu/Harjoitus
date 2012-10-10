@@ -1,9 +1,10 @@
 package sovelluslogiikka;
 
 // reseptin työvaiheet
+import java.io.*;
 
 
-public class Ohje {
+public class Ohje implements Serializable{
 
      String vaihe;
 

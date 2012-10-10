@@ -5,44 +5,60 @@ package sovelluslogiikka;
 import java.util.*;
 import java.io.*;
 
-public class Keittokirja {
+public class Keittokirja implements Serializable {
 
     ArrayList<Resepti> kirja = new ArrayList<>();
 
     public Keittokirja() {
     }
-    
-    public void tulosta(){
-        for (Resepti nimi : kirja){
+
+    public void tulosta() {
+        for (Resepti nimi : kirja) {
             System.out.println(nimi);
         }
     }
-    
-    public void tallenna(String tiedostonimi){
-        try{
-            try (PrintWriter kirjoittaja = new PrintWriter(new File(tiedostonimi))) {
-                for (Resepti nimi : kirja){
-                kirjoittaja.println(nimi);
-                }
+
+    public void tallenna() {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("valmistusohjeet.dat");
+            ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
+            objOut.writeObject(this);
+            objOut.close();
+
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
+    }
+
+    public static Keittokirja lue() {
+        Keittokirja ki = null;
+        try {
+            FileInputStream fileIn = new FileInputStream("valmistusohjeet.dat");
+            ObjectInputStream objIn = new ObjectInputStream(fileIn);
+            try {
+                ki = (Keittokirja) objIn.readObject();
+            } catch (ClassNotFoundException cnfe) {
+                cnfe.printStackTrace();
             }
-        }catch (Exception e){
-            System.out.println("Virhe tallentamisessa");
+            objIn.close();
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
         }
+        return ki;
+        
     }
-    
-    public void lataa(String tiedostonimi){
-        try{
-        Scanner lukija = new Scanner(new File(tiedostonimi));
-        kirja.clear();
-        int reseptimaara = Integer.parseInt(lukija.nextLine());
-        for (int i = 0; i < reseptimaara; i++){
-            String nimi = lukija.nextLine();
-            //kirja.add(nimi);
-        }
-        }catch (FileNotFoundException | NumberFormatException e){
-            System.out.println("Virhe lataamisessa!");
-        }
+
+    public String[] haeReseptienNimet() {
+        
+        String[] nimet = new String[kirja.size()];
+        int i = 0;
+        for (Resepti nimi : kirja) {
+              nimet[i] = kirja.get(i).nimi;
+              i++;
+            }
+        return nimet;
     }
+
 
     /**
      * etsitään haluttu resepti keittokirjasta reseptin nimen avulla
@@ -60,6 +76,7 @@ public class Keittokirja {
         }
         return nimet;
     }
+
 
     /**
      * etsitään tiettyyn kategoriaan kuuluva resepti keittokirjasta
@@ -112,7 +129,7 @@ public class Keittokirja {
         }
         return aine;
     }
-    
+
     /**
      * Etsitään reseptit joissa ei ole haluttua raaka-ainetta
      * @param raakaaine käyttäjän antama tieto
@@ -129,19 +146,19 @@ public class Keittokirja {
         }
         return ilmanainetta;
     }
-    
+
     /**
      * haetaan reseptit joissa ei ole ko raaka-aineita
      * @param nimi käyttäjän antama tieto
      * @param toinenNimi käyttäjän antama tieto
      * @return palauttaa listan resepteistä joissa ei ole ko raaka-aineita
      */
-    public ArrayList<Resepti> haeReseptitIlmanRaakaaineita(Raakaaine nimi, Raakaaine toinenNimi){
-    
+    public ArrayList<Resepti> haeReseptitIlmanRaakaaineita(Raakaaine nimi, Raakaaine toinenNimi) {
+
         ArrayList<Resepti> ilmanAineita = new ArrayList<>();
-        
-        for (Resepti reseptinnimi : kirja){
-            if (!reseptinnimi.onkoRaakaaineita(nimi, toinenNimi)){
+
+        for (Resepti reseptinnimi : kirja) {
+            if (!reseptinnimi.onkoRaakaaineita(nimi, toinenNimi)) {
                 ilmanAineita.add(reseptinnimi);
             }
         }
@@ -171,5 +188,9 @@ public class Keittokirja {
 
     public String ToString() {
         return "" + kirja;
+    }
+
+    public void poistaResepti() {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 }

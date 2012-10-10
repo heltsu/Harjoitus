@@ -1,8 +1,9 @@
 package sovelluslogiikka;
 
 import java.util.*;
+import java.io.*;
 
-public class Resepti {
+public class Resepti  implements Serializable {
 
     String nimi;
     int vaikeusaste;
@@ -39,6 +40,9 @@ public class Resepti {
         this.nimi = nimi;
         vaikeusaste = 0;
         kategoria = "ei määritelty";
+    }
+    public Resepti() {
+        
     }
 
     /**

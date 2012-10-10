@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package kayttoliittyma;
+
 import javax.swing.SwingUtilities;
 import sovelluslogiikka.*;
 
@@ -12,13 +13,13 @@ import sovelluslogiikka.*;
  */
 public class Main {
 
-    public static void main (String[] args){      
-    
-        Keittokirja kirja = new Keittokirja();
+    public static void main(String[] args) {
 
-        
+        Keittokirja kirja;
+        kirja = Keittokirja.lue();
+
         GraafinenKayttoliittyma testi = new GraafinenKayttoliittyma(kirja);
-        //testi.run();
-        SwingUtilities.invokeLater(testi);
+        testi.run();
+//        SwingUtilities.invokeLater(testi);
     }
 }
