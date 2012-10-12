@@ -3,37 +3,33 @@ package kayttoliittyma;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import sovelluslogiikka.*;
 
-public class GraafinenKayttoliittyma implements Runnable {
+public class GraafinenKayttoliittyma {
 
-    private ReseptiFrame ikkuna;
+    private KeittoKirjaIkkuna ikkuna;
     Tapahtumankasittelija tk;
     Kuuntelija kuuntelija;
     Keittokirja kirja;
     
     public GraafinenKayttoliittyma(Keittokirja k){
         
-            tk = new Tapahtumankasittelija(kirja, ikkuna);
-            kuuntelija = new Kuuntelija(tk);
             kirja = k;
+            tk = new Tapahtumankasittelija(kirja);
+            ikkuna = new KeittoKirjaIkkuna(kirja, tk);
+            tk.asetaIkkuna(ikkuna);
+            tk.paivitaNayttoReseptinTiedoilla();
+            ikkuna.run();
     }
+    
+    public static void main(String[] args) throws IOException {
 
-    public void run() {
-        ikkuna = new ReseptiFrame(kuuntelija, kirja);
-        ikkuna.setPreferredSize(new Dimension(700, 800));
+        Keittokirja kirja;
+        kirja = Keittokirja.lue();
 
-        ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-//        luoKomponentit(ikkuna.getContentPane());
-
-        ikkuna.pack();
-        ikkuna.setVisible(true);
-    }
-
-
-    public JFrame getFrame() {
-        return ikkuna;
+        GraafinenKayttoliittyma testi = new GraafinenKayttoliittyma(kirja);
+        
     }
 
 

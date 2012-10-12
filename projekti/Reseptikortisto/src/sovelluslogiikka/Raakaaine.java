@@ -138,6 +138,6 @@ public class Raakaaine implements Serializable {
     }
 
     public String toString() {
-        return maara + " " + laatu + " " + nimi;
+        return nimi + " " + maara + " " + laatu + "\n";
     }
 }

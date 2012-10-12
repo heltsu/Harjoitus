@@ -24,6 +24,10 @@ public class Ohje implements Serializable{
         this.vaihe = vaihe;
     }
     
+    public String getVaihe(){
+        return vaihe;
+    }
+    
     @Override
     public String toString(){
          return vaihe;

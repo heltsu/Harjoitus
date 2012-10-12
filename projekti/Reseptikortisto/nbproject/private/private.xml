@@ -2,19 +2,4 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/test/sovelluslogiikka/RaakaaineTest.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/test/sovelluslogiikka/KeittokirjaTest.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/sovelluslogiikka/Keittokirja.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/sovelluslogiikka/Resepti.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/test/sovelluslogiikka/ReseptiTest.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/sovelluslogiikka/Main.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/sovelluslogiikka/Raakaaine.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/kayttoliittyma/GraafinenKayttoliittyma.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/kayttoliittyma/Main.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/kayttoliittyma/Reseptiikkuna.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/kayttoliittyma/RaakaaineLomake.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/kayttoliittyma/Tapahtumankasittelija.java</file>
-        <file>file:/home/heli/Harjoitus/projekti/Reseptikortisto/src/kayttoliittyma/Kuuntelija.java</file>
-    </open-files>
 </project-private>

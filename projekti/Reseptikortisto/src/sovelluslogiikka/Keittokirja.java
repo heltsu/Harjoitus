@@ -1,7 +1,6 @@
 package sovelluslogiikka;
 
-//sisältää reseptit
-//Admin voi lisätä, poistaa ja muokata reseptejä
+
 import java.util.*;
 import java.io.*;
 
@@ -30,7 +29,7 @@ public class Keittokirja implements Serializable {
         }
     }
 
-    public static Keittokirja lue() {
+    public static Keittokirja lue() throws IOException {
         Keittokirja ki = null;
         try {
             FileInputStream fileIn = new FileInputStream("valmistusohjeet.dat");
@@ -43,6 +42,7 @@ public class Keittokirja implements Serializable {
             objIn.close();
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
+            throw ioe;
         }
         return ki;
         
@@ -112,6 +112,14 @@ public class Keittokirja implements Serializable {
         }
         return molemmat;
     }
+    
+    public Resepti palautaResepti(int nro){
+        if ((kirja.size() < 1)||(nro > kirja.size()))
+        {
+            return null;
+        }
+        return kirja.get(nro);
+    }
 
     /**
      * Etsitään reseptit joissa on haluttua raaka-ainetta
@@ -174,7 +182,6 @@ public class Keittokirja implements Serializable {
         if (kirja.contains(nimi)) {
             kirja.remove(nimi);
         }
-        //vain AD voi poistaa
     }
 
     /**
@@ -183,14 +190,11 @@ public class Keittokirja implements Serializable {
      */
     public void lisaaResepti(Resepti resepti) {
         kirja.add(resepti);
-        //vain AD voi lisätä
     }
 
     public String ToString() {
         return "" + kirja;
     }
 
-    public void poistaResepti() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
+    
 }

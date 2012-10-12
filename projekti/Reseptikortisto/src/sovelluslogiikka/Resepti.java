@@ -41,8 +41,35 @@ public class Resepti  implements Serializable {
         vaikeusaste = 0;
         kategoria = "ei määritelty";
     }
+    
     public Resepti() {
-        
+        nimi = "";
+        vaikeusaste = 0;
+        kategoria = "";   
+    }
+    
+    /**
+     * Asetetaan reseptin nimi
+     * @param n 
+     */
+    public void setReseptinNimi(String n){
+        nimi = n;
+    }
+
+    /**
+     * Asetetaan kategoria
+     * @param n 
+     */
+    public void setKategoria(String n){
+        kategoria = n;
+    }
+    
+    /**
+     * Asetetaan vaikeusaste
+     * @param n 
+     */
+    public void setvaikeusaste(int n){
+        vaikeusaste = n;
     }
 
     /**
@@ -112,6 +139,22 @@ public class Resepti  implements Serializable {
 
         return vaikeusaste;
     }
+    public String haeRaakaaineet(){
+        String tmp ="";
+        for (Raakaaine raine : raakaaineet) {
+            tmp = tmp + raine.haeNimi() + " " + raine.haeMaara() + " " + raine.haeLaatu() + "\n";
+        }
+        return tmp;
+    }
+    
+    public String haeOhjeet(){
+        String tmp ="";
+        for (Ohje ohje : tyovaiheet) {
+            tmp = tmp + ohje.getVaihe() + "\n";
+        }
+        return tmp;
+    }
+    
 
     /**
      * lisätään reseptille raaka-aine
@@ -122,6 +165,8 @@ public class Resepti  implements Serializable {
 
         raakaaineet.add(aine);
     }
+    
+    
 
     /**
      * poistetaan raaka-aine reseptiltä
